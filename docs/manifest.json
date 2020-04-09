@@ -18,7 +18,7 @@
       "output": {
         ".html": {
           "relative_path": "api/GameOverlay.Drawing.Circle.html",
-          "hash": "GmCqGwP00A+ZJ8o4p8asEQ=="
+          "hash": "yWdmqOATUF4QOJQaOiqS9w=="
         }
       },
       "is_incremental": false,
@@ -30,7 +30,7 @@
       "output": {
         ".html": {
           "relative_path": "api/GameOverlay.Drawing.Color.html",
-          "hash": "/8TdqJfdq6Ym6jvoWh6VqA=="
+          "hash": "Kcx+aQkP7IrwzoiB1YE3cw=="
         }
       },
       "is_incremental": false,
@@ -54,7 +54,7 @@
       "output": {
         ".html": {
           "relative_path": "api/GameOverlay.Drawing.Ellipse.html",
-          "hash": "yYE80JaS/RKWPPqN/bAiCA=="
+          "hash": "tuHPTDN54O1sJN+6Cx6rGA=="
         }
       },
       "is_incremental": false,
@@ -66,7 +66,7 @@
       "output": {
         ".html": {
           "relative_path": "api/GameOverlay.Drawing.Font.html",
-          "hash": "/TKhf+r0fl0ydR7QQdg+PQ=="
+          "hash": "TB32mVXTFkZpMsztEdy5LQ=="
         }
       },
       "is_incremental": false,
@@ -78,7 +78,7 @@
       "output": {
         ".html": {
           "relative_path": "api/GameOverlay.Drawing.Geometry.html",
-          "hash": "Qmoh9XkSb0S138OJeLNVtA=="
+          "hash": "6O6kNi8kh0XrqQ8FRIZ+GQ=="
         }
       },
       "is_incremental": false,
@@ -90,7 +90,7 @@
       "output": {
         ".html": {
           "relative_path": "api/GameOverlay.Drawing.Graphics.html",
-          "hash": "NeAmAd9opgSM16wEOtNyKg=="
+          "hash": "I6ynlQaW4uWh1xAq4D/5SQ=="
         }
       },
       "is_incremental": false,
@@ -114,7 +114,7 @@
       "output": {
         ".html": {
           "relative_path": "api/GameOverlay.Drawing.Image.html",
-          "hash": "P8cPkgRrMMA0b/E7iot2SA=="
+          "hash": "wmcFlddXkxGHE6b3v2K3OQ=="
         }
       },
       "is_incremental": false,
@@ -126,7 +126,7 @@
       "output": {
         ".html": {
           "relative_path": "api/GameOverlay.Drawing.Line.html",
-          "hash": "llo5VWpkQw99r+2z3PGxQQ=="
+          "hash": "RoM2oInTpSiTS3hUCZxLmQ=="
         }
       },
       "is_incremental": false,
@@ -138,7 +138,7 @@
       "output": {
         ".html": {
           "relative_path": "api/GameOverlay.Drawing.LinearGradientBrush.html",
-          "hash": "zASWW/9Fm1spKwxuBbMf2w=="
+          "hash": "AtUaiN8IJfOiiNJhuANj7w=="
         }
       },
       "is_incremental": false,
@@ -150,7 +150,19 @@
       "output": {
         ".html": {
           "relative_path": "api/GameOverlay.Drawing.Point.html",
-          "hash": "1HJyI+SlTeNmAvfyo38IFg=="
+          "hash": "Hx6klawO4lurR7i3UtjvCg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/GameOverlay.Drawing.RecreateResourcesEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/GameOverlay.Drawing.RecreateResourcesEventArgs.html",
+          "hash": "7A7S9mCi28HWSoJEmGy0hg=="
         }
       },
       "is_incremental": false,
@@ -162,7 +174,7 @@
       "output": {
         ".html": {
           "relative_path": "api/GameOverlay.Drawing.Rectangle.html",
-          "hash": "kZ/zwaEwQ0pb/JonLAVgag=="
+          "hash": "uJFe/YsTPya3aM1/0JbcAA=="
         }
       },
       "is_incremental": false,
@@ -174,7 +186,7 @@
       "output": {
         ".html": {
           "relative_path": "api/GameOverlay.Drawing.RoundedRectangle.html",
-          "hash": "tuEOkLP4F8Gdhq8Rk66Bkw=="
+          "hash": "piSRX2jjDloWz6BZFc6VSQ=="
         }
       },
       "is_incremental": false,
@@ -186,7 +198,7 @@
       "output": {
         ".html": {
           "relative_path": "api/GameOverlay.Drawing.Scene.html",
-          "hash": "xNTNulRPPFggDMjbdVphlQ=="
+          "hash": "6r8P3W6x0YGUHoPVh64s2g=="
         }
       },
       "is_incremental": false,
@@ -198,7 +210,19 @@
       "output": {
         ".html": {
           "relative_path": "api/GameOverlay.Drawing.SolidBrush.html",
-          "hash": "a3JRjEnnCIiif115yHX1qg=="
+          "hash": "4X2N2IQglhzrs4AdBIKrZw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/GameOverlay.Drawing.TransformationMatrix.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/GameOverlay.Drawing.TransformationMatrix.html",
+          "hash": "IdglG3xbnQumHExwJN3pLA=="
         }
       },
       "is_incremental": false,
@@ -210,7 +234,7 @@
       "output": {
         ".html": {
           "relative_path": "api/GameOverlay.Drawing.Triangle.html",
-          "hash": "fDlb0HazvJKyniKfY11asQ=="
+          "hash": "TUg/2XHsD+7Mp14j0ftlPQ=="
         }
       },
       "is_incremental": false,
@@ -222,7 +246,7 @@
       "output": {
         ".html": {
           "relative_path": "api/GameOverlay.Drawing.html",
-          "hash": "KH0u9g6yXyUT6VRDyK0hUQ=="
+          "hash": "CT3D0zKmFEv9Tv8eAFbCqQ=="
         }
       },
       "is_incremental": false,
@@ -234,7 +258,7 @@
       "output": {
         ".html": {
           "relative_path": "api/GameOverlay.Windows.DestroyGraphicsEventArgs.html",
-          "hash": "yE3H7PU++JqhSFH+d8dDFA=="
+          "hash": "6d4vqAbP9RLgeFHbclOWrA=="
         }
       },
       "is_incremental": false,
@@ -246,7 +270,7 @@
       "output": {
         ".html": {
           "relative_path": "api/GameOverlay.Windows.DrawGraphicsEventArgs.html",
-          "hash": "b9HqAgMJTUVGOvitg4KRdA=="
+          "hash": "v8uSr8YUDTqG5ArAUBFUxg=="
         }
       },
       "is_incremental": false,
@@ -258,7 +282,7 @@
       "output": {
         ".html": {
           "relative_path": "api/GameOverlay.Windows.GraphicsWindow.html",
-          "hash": "ZmxzFX8HAn2W+nXCIhJRsA=="
+          "hash": "5/FBCxuuUdoT1elPMurJGg=="
         }
       },
       "is_incremental": false,
@@ -270,7 +294,7 @@
       "output": {
         ".html": {
           "relative_path": "api/GameOverlay.Windows.OverlayPositionEventArgs.html",
-          "hash": "Hx+yJiTOCfBjV0LceW8Tig=="
+          "hash": "A/xuo8Yg2rlYvXFu9Ci52g=="
         }
       },
       "is_incremental": false,
@@ -282,7 +306,7 @@
       "output": {
         ".html": {
           "relative_path": "api/GameOverlay.Windows.OverlaySizeEventArgs.html",
-          "hash": "QBI3Z+fr1H2CAvndyTZ8rg=="
+          "hash": "P1DEhaYerKcKKwR/CODpzA=="
         }
       },
       "is_incremental": false,
@@ -294,7 +318,7 @@
       "output": {
         ".html": {
           "relative_path": "api/GameOverlay.Windows.OverlayVisibilityEventArgs.html",
-          "hash": "lvqDMzcu3KdVEVJy+fuaOA=="
+          "hash": "aJUAgUdC7So958omrXqKUA=="
         }
       },
       "is_incremental": false,
@@ -306,7 +330,7 @@
       "output": {
         ".html": {
           "relative_path": "api/GameOverlay.Windows.OverlayWindow.html",
-          "hash": "vYXV+X1VhAP0QTFIU69LFw=="
+          "hash": "YHU5gZhcHBpjPoLD+N/9EA=="
         }
       },
       "is_incremental": false,
@@ -318,7 +342,7 @@
       "output": {
         ".html": {
           "relative_path": "api/GameOverlay.Windows.SetupGraphicsEventArgs.html",
-          "hash": "YJb1V3z6QbuJf51kHIXEdw=="
+          "hash": "Yb+VRhy3ojeHKrN8KkPU4A=="
         }
       },
       "is_incremental": false,
@@ -330,7 +354,7 @@
       "output": {
         ".html": {
           "relative_path": "api/GameOverlay.Windows.StickyWindow.html",
-          "hash": "2B0MSmgR45VUaosjJ9afWw=="
+          "hash": "cA/xyajjlYHeEpikEK1uTw=="
         }
       },
       "is_incremental": false,
@@ -342,7 +366,7 @@
       "output": {
         ".html": {
           "relative_path": "api/GameOverlay.Windows.WindowBounds.html",
-          "hash": "+4EQJWM0XwqpF2uT6kGi8g=="
+          "hash": "Znk4rTlfLNir/YrAGRNeag=="
         }
       },
       "is_incremental": false,
@@ -354,7 +378,7 @@
       "output": {
         ".html": {
           "relative_path": "api/GameOverlay.Windows.WindowHelper.html",
-          "hash": "ZeVwai1pbrkm76EqqErkvw=="
+          "hash": "SFDQIrv6Al4ovRzNN9zVSQ=="
         }
       },
       "is_incremental": false,
@@ -390,7 +414,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "cBXa7QbZ030OIWmvReFNcQ=="
+          "hash": "QwDpbb7+Cw51kLYup1WMrA=="
         }
       },
       "is_incremental": false,
@@ -426,7 +450,18 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "sbckmv0VFANzMxQI7sY3qA=="
+          "hash": "MfZ9q5SeMSbmLCH4umXqkA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "langwordMapping.yml",
+      "output": {
+        "resource": {
+          "relative_path": "langwordMapping.yml"
         }
       },
       "is_incremental": false,
@@ -454,6 +489,13 @@
         "skipped_file_count": 0
       },
       "processors": {
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
         "TocDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
@@ -461,17 +503,17 @@
           "total_file_count": 0,
           "skipped_file_count": 0
         },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": true,
-          "incrementalPhase": "build",
-          "total_file_count": 30,
-          "skipped_file_count": 2
-        },
         "ConceptualDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 3,
           "skipped_file_count": 3
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 32,
+          "skipped_file_count": 32
         }
       }
     },

@@ -9,7 +9,8 @@
           "exclude": [
             "**/bin/**",
             "**/obj/**",
-            "**/Tests/**"
+            "**/Tests/**",
+            "**/Examples/**"
           ],
           "src": "../source"
         }
@@ -40,7 +41,8 @@
     "resource": [
       {
         "files": [
-          "images/**"
+          "images/**",
+          "langwordMapping.yml"
         ]
       }
     ],
@@ -70,13 +72,16 @@
         "branch": "master"
       }
     },
+    "xrefService": [
+      "https://xref.docs.microsoft.com/query?uid={uid}"
+    ],
     "postProcessors": [
       "ExtractSearchIndex"
     ],
     "markdownEngineName": "markdig",
     "noLangKeyword": false,
     "keepFileLink": false,
-    "cleanupCacheHistory": true,
+    "cleanupCacheHistory": false,
     "disableGitFeatures": false
   }
 }
