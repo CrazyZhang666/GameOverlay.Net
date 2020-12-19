@@ -29,6 +29,7 @@ namespace GameOverlay.Windows
 		private Thread _windowThread;
 		private volatile int _x;
 		private volatile int _y;
+		private volatile int _supressDestroyMessages;
 
 		/// <summary>
 		/// Gets or sets the windows class name.
@@ -41,13 +42,24 @@ namespace GameOverlay.Windows
 				if (_isInitialized) throw new InvalidOperationException("OverlayWindow already running");
 
 				_className = value;
+
+				OnPropertyChanged(nameof(ClassName), value);
 			}
 		}
 
 		/// <summary>
 		/// Gets the window handle of this instance.
 		/// </summary>
-		public IntPtr Handle { get => _handle; private set => _handle = value; }
+		public IntPtr Handle
+		{
+			get => _handle;
+			private set
+			{
+				_handle = value;
+
+				OnPropertyChanged(nameof(Handle), value);
+			}
+		}
 
 		/// <summary>
 		/// Gets or sets the height of the window.
@@ -65,6 +77,8 @@ namespace GameOverlay.Windows
 				{
 					_height = value;
 				}
+
+				OnPropertyChanged(nameof(Height), value);
 			}
 		}
 
@@ -96,6 +110,8 @@ namespace GameOverlay.Windows
 				{
 					_isTopmost = value;
 				}
+
+				OnPropertyChanged(nameof(IsTopmost), value);
 			}
 		}
 
@@ -122,13 +138,15 @@ namespace GameOverlay.Windows
 				{
 					_isVisible = value;
 				}
+
+				OnPropertyChanged(nameof(IsVisible), value);
 			}
 		}
 
 		/// <summary>
 		/// Gets the windows menu name.
 		/// </summary>
-		public string MenuName { get; private set; }
+		public string MenuName { get; set; }
 
 		/// <summary>
 		/// Gets or sets the windows title.
@@ -141,6 +159,8 @@ namespace GameOverlay.Windows
 				if (_isInitialized) throw new InvalidOperationException("OverlayWindow already running");
 
 				_title = value;
+
+				OnPropertyChanged(nameof(Title), value);
 			}
 		}
 
@@ -160,6 +180,8 @@ namespace GameOverlay.Windows
 				{
 					_width = value;
 				}
+
+				OnPropertyChanged(nameof(Width), value);
 			}
 		}
 
@@ -179,6 +201,8 @@ namespace GameOverlay.Windows
 				{
 					_x = value;
 				}
+
+				OnPropertyChanged(nameof(X), value);
 			}
 		}
 
@@ -198,6 +222,8 @@ namespace GameOverlay.Windows
 				{
 					_y = value;
 				}
+
+				OnPropertyChanged(nameof(Y), value);
 			}
 		}
 
@@ -215,6 +241,11 @@ namespace GameOverlay.Windows
 		/// Fires when the visibility of the window has changed.
 		/// </summary>
 		public event EventHandler<OverlayVisibilityEventArgs> VisibilityChanged;
+
+		/// <summary>
+		/// Fires when a property of this class changed it's value.
+		/// </summary>
+		public event EventHandler<OverlayPropertyChangedEventArgs> PropertyChanged;
 
 		/// <summary>
 		/// Initializes a new OverlayWindow.
@@ -270,7 +301,7 @@ namespace GameOverlay.Windows
 			var windowStyle = WindowStyle.Popup;
 			if (_isVisible) windowStyle |= WindowStyle.Visible;
 
-			_handle = User32.CreateWindowEx(
+			Handle = User32.CreateWindowEx(
 				extendedWindowStyle,
 				_className,
 				_title,
@@ -388,7 +419,19 @@ namespace GameOverlay.Windows
 				case WindowMessage.DpiChanged:
 					return (IntPtr)0; // block DPI changed message
 
-				default: break;
+                case WindowMessage.Destroy:
+				case WindowMessage.Ncdestroy:
+                    if (_supressDestroyMessages == -1)
+                    {
+                        User32.PostQuitMessage(0);
+                    }
+                    else if (_supressDestroyMessages > 0)
+                    {
+                        _supressDestroyMessages--;
+                    }
+                    break;
+
+                default: break;
 			}
 
 			return User32.DefWindowProc(hwnd, msg, wParam, lParam);
@@ -402,58 +445,50 @@ namespace GameOverlay.Windows
 
 			_isInitialized = true;
 
-			int supressDestroyMessages = 0;
+            bool isRunning = true;
+            do
+            {
+                User32.WaitMessage();
 
-			while (true)
-			{
-				User32.WaitMessage();
+                var message = default(Message);
 
-				var message = default(Message);
-
-				if (User32.PeekMessage(ref message, _handle, 0, 0, 1))
-				{
-					switch (message.Msg)
-					{
-						//case WindowMessage.Quit:
-						//    continue; // TODO: test
-						case CustomDestroyWindowMessage:
-							User32.DestroyWindow(_handle);
-							break;
-
-						case CustomRecreateWindowMessage:
-							supressDestroyMessages = 2;
+                if (User32.PeekMessage(ref message, IntPtr.Zero, 0, 0, 1))
+                {
+                    switch (message.Msg)
+                    {
+                        //case WindowMessage.Quit:
+                        //    continue; // TODO: test
+                        case CustomDestroyWindowMessage:
+							_supressDestroyMessages = -1;
 
 							User32.DestroyWindow(_handle);
+                            break;
 
-							InstantiateNewWindow();
+                        case CustomRecreateWindowMessage:
+                            _supressDestroyMessages = 2;
 
-							break;
+                            User32.DestroyWindow(_handle);
 
-						default: break;
-					}
+                            InstantiateNewWindow();
 
-					User32.TranslateMessage(ref message);
-					User32.DispatchMessage(ref message);
+                            break;
+                        case WindowMessage.Quit:
+                            isRunning = false;
+                            break;
+                        default: break;
+                    }
 
-					if (message.Msg == WindowMessage.Destroy || message.Msg == WindowMessage.Ncdestroy)
-					{
-						if (supressDestroyMessages == 0)
-						{
-							break;
-						}
-						else
-						{
-							supressDestroyMessages--;
-						}
-					}
-				}
-			}
+                    User32.TranslateMessage(ref message);
+                    User32.DispatchMessage(ref message);
+                }
+            }
+            while (isRunning);
 
-			User32.UnregisterClass(_className, IntPtr.Zero);
+            User32.UnregisterClass(_className, IntPtr.Zero);
 
-			_isInitialized = false;
+            _isInitialized = false;
 
-			_handle = IntPtr.Zero;
+            _handle = IntPtr.Zero;
 
 			IsVisible = false;
 			IsTopmost = false;
@@ -486,6 +521,16 @@ namespace GameOverlay.Windows
 		protected virtual void OnVisibilityChanged(bool isVisible)
 		{
 			VisibilityChanged?.Invoke(this, new OverlayVisibilityEventArgs(isVisible));
+		}
+
+		/// <summary>
+		/// Gets called whenever a property of this instance changes.
+		/// </summary>
+		/// <param name="propertyName">The name of the changed property. (case-sensitive)</param>
+		/// <param name="value">The new value of the changed property.</param>
+		protected virtual void OnPropertyChanged(string propertyName, object value)
+		{
+			PropertyChanged?.Invoke(this, new OverlayPropertyChangedEventArgs(propertyName, value));
 		}
 
 		/// <summary>
@@ -635,6 +680,8 @@ namespace GameOverlay.Windows
 			WindowHelper.ExtendFrameIntoClientArea(_handle);
 
 			OnPositionChanged(x, y);
+			OnPropertyChanged(nameof(X), x);
+			OnPropertyChanged(nameof(Y), y);
 		}
 
 		/// <summary>
@@ -714,6 +761,8 @@ namespace GameOverlay.Windows
 
 			OnPositionChanged(x, y);
 			OnSizeChanged(width, height);
+			OnPropertyChanged(nameof(X), x);
+			OnPropertyChanged(nameof(Y), y);
 		}
 
 		/// <summary>
